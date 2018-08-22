@@ -4,7 +4,7 @@ Tutorial
 
 This tutorial assumes that you have downloaded the code and additional Netcdf validation files needed to run the tutorial and example calculations. These are available on `Github <https://github.com/tropd/pytropd/>`_.
 
-The directory structure is assumed to be 
+The directory structure is assumed to be:: 
 
   pytropd
   | -- pytropd               <-- run the tutorial from inside this directory
