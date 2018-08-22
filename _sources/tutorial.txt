@@ -6,7 +6,7 @@ This tutorial assumes that you have downloaded the code and additional Netcdf va
 
 The directory structure is assumed to be 
 
-.. code-block:: python
+.. code-block:: none
   pytropd
   | -- pytropd               <-- run the tutorial from inside this directory
   |    | -- tutorial.py
