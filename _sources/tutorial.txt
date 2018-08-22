@@ -7,7 +7,7 @@ This tutorial assumes that you have downloaded the code and additional Netcdf va
 The directory structure is assumed to be:: 
 
   pytropd
-  | -- pytropd               <-- run the tutorial from inside this directory
+  | -- pytropd               <-- Run the tutorial from inside this directory
   |    | -- tutorial.py
   |    | -- functions.py
   |    | -- __init__.py   
