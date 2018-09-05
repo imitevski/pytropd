@@ -59,7 +59,7 @@
 <tr class="row-even"><td><a class="reference internal" href="#metrics.TropD_Metric_PSI" title="metrics.TropD_Metric_PSI"><code class="xref py py-obj docutils literal"><span class="pre">TropD_Metric_PSI</span></code></a>(V,&nbsp;lat,&nbsp;lev[,&nbsp;method,&nbsp;...])</td>
 <td>TropD Mass streamfunction (PSI) metric</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#metrics.TropD_Metric_PSL" title="metrics.TropD_Metric_PSL"><code class="xref py py-obj docutils literal"><span class="pre">TropD_Metric_PSL</span></code></a>(ps,&nbsp;lat[,&nbsp;method])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#metrics.TropD_Metric_PSL" title="metrics.TropD_Metric_PSL"><code class="xref py py-obj docutils literal"><span class="pre">TropD_Metric_PSL</span></code></a>(ps,&nbsp;lat[,&nbsp;method,&nbsp;n])</td>
 <td>TropD Sea-level pressure (PSL) metric</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#metrics.TropD_Metric_STJ" title="metrics.TropD_Metric_STJ"><code class="xref py py-obj docutils literal"><span class="pre">TropD_Metric_STJ</span></code></a>(U,&nbsp;lat,&nbsp;lev[,&nbsp;method,&nbsp;n])</td>
@@ -197,7 +197,7 @@
 
 <dl class="function">
 <dt id="metrics.TropD_Metric_PSL">
-<code class="descclassname">metrics.</code><code class="descname">TropD_Metric_PSL</code><span class="sig-paren">(</span><em>ps</em>, <em>lat</em>, <em>method='max'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metrics.html#TropD_Metric_PSL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metrics.TropD_Metric_PSL" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">metrics.</code><code class="descname">TropD_Metric_PSL</code><span class="sig-paren">(</span><em>ps</em>, <em>lat</em>, <em>method='peak'</em>, <em>n=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metrics.html#TropD_Metric_PSL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metrics.TropD_Metric_PSL" title="Permalink to this definition">¶</a></dt>
 <dd><p>TropD Sea-level pressure (PSL) metric</p>
 <p>Latitude of maximum of the subtropical sea-level pressure</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -223,7 +223,7 @@
 
 <dl class="function">
 <dt id="metrics.TropD_Metric_STJ">
-<code class="descclassname">metrics.</code><code class="descname">TropD_Metric_STJ</code><span class="sig-paren">(</span><em>U</em>, <em>lat</em>, <em>lev</em>, <em>method='adjusted'</em>, <em>n=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metrics.html#TropD_Metric_STJ"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metrics.TropD_Metric_STJ" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">metrics.</code><code class="descname">TropD_Metric_STJ</code><span class="sig-paren">(</span><em>U</em>, <em>lat</em>, <em>lev</em>, <em>method='adjusted_peak'</em>, <em>n=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metrics.html#TropD_Metric_STJ"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metrics.TropD_Metric_STJ" title="Permalink to this definition">¶</a></dt>
 <dd><p>TropD Subtropical Jet (STJ) metric</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -233,10 +233,10 @@
 <li><strong>U</strong> (<em>lat,lev</em>) &#8211; zonal mean zonal wind</li>
 <li><strong>lat</strong> &#8211; latitude vector</li>
 <li><strong>lev</strong> &#8211; vertical level vector in hPa units</li>
-<li><strong>method</strong> (<em>str, optional</em>) &#8211; <p>&#8216;adjusted&#8217; : Latitude of maximum (smoothing parameter n=6) of the zonal wind averaged between the 100 and 400 hPa levels minus the zonal mean zonal wind at the level closes to the 850 hPa level, poleward of 10 degrees and equatorward of the Eddy Driven Jet latitude</p>
-<p>&#8216;adjusted_peak&#8217;: Latitude of maximum (smoothing parameter n=30) of the zonal wind averaged between the 100 and 400 hPa levels minus the zonal mean zonal wind at the level closes to the 850 hPa level, poleward of 10 degrees and equatorward of the Eddy Driven Jet latitude</p>
-<p>&#8216;core&#8217;: Latitude of maximum of the zonal wind (smoothing parameter n=6) averaged between the 100 and 400 hPa levels, poleward of 10 degrees and equatorward of 70 degrees</p>
+<li><strong>method</strong> (<em>str, optional</em>) &#8211; <p>&#8216;adjusted_peak&#8217;: Latitude of maximum (smoothing parameter n=30) of the zonal wind averaged between the 100 and 400 hPa levels minus the zonal mean zonal wind at the level closes to the 850 hPa level, poleward of 10 degrees and equatorward of the Eddy Driven Jet latitude</p>
+<p>&#8216;adjusted_max&#8217; : Latitude of maximum (smoothing parameter n=6) of the zonal wind averaged between the 100 and 400 hPa levels minus the zonal mean zonal wind at the level closes to the 850 hPa level, poleward of 10 degrees and equatorward of the Eddy Driven Jet latitude</p>
 <p>&#8216;core_peak&#8217;: Latitude of maximum of the zonal wind (smoothing parameter n=30) averaged between the 100 and 400 hPa levels, poleward of 10 degrees and equatorward of 70 degrees</p>
+<p>&#8216;core_max&#8217;: Latitude of maximum of the zonal wind (smoothing parameter n=6) averaged between the 100 and 400 hPa levels, poleward of 10 degrees and equatorward of 70 degrees</p>
 </li>
 </ul>
 </td>
