@@ -47,7 +47,7 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#metrics.TropD_Metric_EDJ" title="metrics.TropD_Metric_EDJ"><code class="xref py py-obj docutils literal"><span class="pre">TropD_Metric_EDJ</span></code></a>(U,&nbsp;lat[,&nbsp;lev,&nbsp;method,&nbsp;n])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#metrics.TropD_Metric_EDJ" title="metrics.TropD_Metric_EDJ"><code class="xref py py-obj docutils literal"><span class="pre">TropD_Metric_EDJ</span></code></a>(U,&nbsp;lat[,&nbsp;lev,&nbsp;method,&nbsp;n,&nbsp;n_fit])</td>
 <td>TropD Eddy Driven Jet (EDJ) metric</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#metrics.TropD_Metric_OLR" title="metrics.TropD_Metric_OLR"><code class="xref py py-obj docutils literal"><span class="pre">TropD_Metric_OLR</span></code></a>(olr,&nbsp;lat[,&nbsp;method,&nbsp;Cutoff,&nbsp;n])</td>
@@ -77,7 +77,7 @@
 <span id="description-of-metrics"></span><h2>Description of metrics<a class="headerlink" href="#module-metrics" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="metrics.TropD_Metric_EDJ">
-<code class="descclassname">metrics.</code><code class="descname">TropD_Metric_EDJ</code><span class="sig-paren">(</span><em>U</em>, <em>lat</em>, <em>lev=array([1])</em>, <em>method='max'</em>, <em>n=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metrics.html#TropD_Metric_EDJ"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metrics.TropD_Metric_EDJ" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">metrics.</code><code class="descname">TropD_Metric_EDJ</code><span class="sig-paren">(</span><em>U</em>, <em>lat</em>, <em>lev=array([1])</em>, <em>method='peak'</em>, <em>n=0</em>, <em>n_fit=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metrics.html#TropD_Metric_EDJ"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metrics.TropD_Metric_EDJ" title="Permalink to this definition">¶</a></dt>
 <dd><p>TropD Eddy Driven Jet (EDJ) metric</p>
 <p>Latitude of maximum of the zonal wind at the level closest to the 850 hPa level</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -88,8 +88,12 @@
 <li><strong>U</strong> (<em>lat,lev</em>) &#8211; Zonal mean zonal wind. Also takes surface wind</li>
 <li><strong>lat</strong> &#8211; latitude vector</li>
 <li><strong>lev</strong> &#8211; vertical level vector in hPa units</li>
-<li><strong>method</strong> (<em>str, optional</em>) &#8211; &#8216;peak&#8217; (default) |  &#8216;max&#8217;</li>
-<li><strong>n</strong> (<em>int, optional</em>) &#8211; 6 (default). Rank of moment used to calculate the position of max value. n = 1,2,4,6,8,...</li>
+<li><strong>method</strong> (<em>str, optional</em>) &#8211; <p>&#8216;peak&#8217; (default) |  &#8216;max&#8217; | &#8216;fit&#8217;</p>
+<p>peak (Default): Latitude of the maximum of the zonal wind at the level closest to the 850 hPa level (smoothing parameter n=30)</p>
+<p>max: Latitude of the maximum of the zonal wind at the level closest to the 850 hPa level (smoothing parameter n=6)
+fit: Latitude of the maximum of the zonal wind at the level closest to the 850 hPa level using a quadratic polynomial fit of data from gridpoints surrounding the gridpoint of the maximum</p>
+</li>
+<li><strong>n</strong> (<em>int, optional</em>) &#8211; If n is not set (0), n=6 (default) is used in TropD_Calculate_MaxLat. Rank of moment used to calculate the position of max value. n = 1,2,4,6,8,...</li>
 </ul>
 </td>
 </tr>
